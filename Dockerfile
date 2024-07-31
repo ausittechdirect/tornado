@@ -45,11 +45,11 @@ RUN yum install -y https://downloads.sourceforge.net/project/mscorefonts2/rpms/m
     && rm -rf /var/cache/yum
 
 ENV LIBREOFFICE_VERSION=7.5.7.1
-ENV LIBREOFFICE_MIRROR=https://downloadarchive.documentfoundation.org/libreoffice/old/
+ENV LIBREOFFICE_MIRROR=https://s3.ap-southeast-2.amazonaws.com/au.com.docmosis.pickup/
 
 RUN echo "Downloading LibreOffice ${LIBREOFFICE_VERSION}..." \
-    && echo ${LIBREOFFICE_MIRROR}${LIBREOFFICE_VERSION}/rpm/x86_64/LibreOffice_${LIBREOFFICE_VERSION}_Linux_x86-64_rpm.tar.gz \
-    && wget ${LIBREOFFICE_MIRROR}${LIBREOFFICE_VERSION}/rpm/x86_64/LibreOffice_${LIBREOFFICE_VERSION}_Linux_x86-64_rpm.tar.gz \
+    && echo ${LIBREOFFICE_MIRROR}LibreOffice_${LIBREOFFICE_VERSION}_Linux_x86-64_rpm.tar.gz \
+    && wget ${LIBREOFFICE_MIRROR}LibreOffice_${LIBREOFFICE_VERSION}_Linux_x86-64_rpm.tar.gz \
     && tar -xf LibreOffice_${LIBREOFFICE_VERSION}_Linux_x86-64_rpm.tar.gz \
     && cd LibreOffice_*_Linux_x86-64_rpm/RPMS \
     && (rm -f *integ* || true) \
